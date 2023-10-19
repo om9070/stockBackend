@@ -5,7 +5,7 @@ const http = require("http");
 const app = express();
 const socketIo = require("socket.io");
 const server = http.createServer(app);
-const io = socketIo(server);
+// const io = socketIo(server);
 const cors = require("cors");
 const socketModel = require("./models/stock");
 require("./utils/db");
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const corsOptions = {
-      origin: 'https://stockclient.vercel.app', // Replace with your React app's URL
+      origin: '*', // Replace with your React app's URL
       methods: 'GET,POST',
     };
 
@@ -29,6 +29,8 @@ const indexRouter = require("./routes/index");
 app.get("/", (req, res) => {
   res.send("Hey this is my API running 🥳");
 });
+
+const io = require('socket.io')(server, {cors: {origin: "*"}});
 
 io.on("connection", (socket) => {
   console.log("A user connected");
