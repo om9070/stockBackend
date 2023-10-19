@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 //       origin: 'https://6530cc32ea419971e9e43381--starlit-cendol-dea8f5.netlify.app', // Replace with your React app's URL
 //       methods: 'GET,POST',
 //     };
-app.use(cors({ origin: "*" }));
+app.use(cors());
 
 app.use(function (req, res, next) {
   // Mentioning content types;
