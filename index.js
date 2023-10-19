@@ -14,14 +14,20 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const corsOptions = {
-      origin: '*', // Replace with your React app's URL
-      methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-    };
+// const corsOptions = {
+//       origin: '*', // Replace with your React app's URL
+//       methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+//     };
 
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://www.differentServerDomain.fr https://www.differentServerDomain.fr");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 //routes
 const indexRouter = require("./routes/index");
