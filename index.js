@@ -27,7 +27,7 @@ app.use(cors(corsOptions));
 const indexRouter = require("./routes/index");
 
 app.get("/", (req, res) => {
-  res.send("Hey this is my API running 🥳");
+  res.send("Hey this is my API running01 🥳");
 });
 
 // const io = require('socket.io')(server, {cors: {origin: "*"}});
