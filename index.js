@@ -5,7 +5,7 @@ const http = require("http");
 const app = express();
 const socketIo = require("socket.io");
 const server = http.createServer(app);
-// const io = socketIo(server);
+const io = socketIo(server);
 const cors = require("cors");
 const socketModel = require("./models/stock");
 require("./utils/db");
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 const corsOptions = {
       origin: '*', // Replace with your React app's URL
-      methods: 'GET,POST',
+      methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
     };
 
 
@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
   res.send("Hey this is my API running 🥳");
 });
 
-const io = require('socket.io')(server, {cors: {origin: "*"}});
+// const io = require('socket.io')(server, {cors: {origin: "*"}});
 
 io.on("connection", (socket) => {
   console.log("A user connected");
