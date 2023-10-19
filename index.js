@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
 const corsOptions = {
-      origin: 'http://localhost:3000', // Replace with your React app's URL
+      origin: 'https://stockclient.vercel.app', // Replace with your React app's URL
       methods: 'GET,POST',
     };
 app.use(cors(corsOptions));
