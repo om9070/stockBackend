@@ -12,14 +12,13 @@ require("./utils/db")
 const PORT = process.env.PORT||5000;
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:false}))
 
-const corsOptions = {
-      origin: 'https://6530cc32ea419971e9e43381--starlit-cendol-dea8f5.netlify.app', // Replace with your React app's URL
-      methods: 'GET,POST',
-    };
-app.use(cors(corsOptions));
-
+// const corsOptions = {
+//       origin: 'https://6530cc32ea419971e9e43381--starlit-cendol-dea8f5.netlify.app', // Replace with your React app's URL
+//       methods: 'GET,POST',
+//     };
+app.use(cors({origin: '*'}));
 //routes
 const indexRouter = require("./routes/index");
 
