@@ -23,6 +23,9 @@ app.use(cors(corsOptions));
 //routes
 const indexRouter = require("./routes/index");
 
+app.get("/",(req, res) => {
+      res.send('Hey this is my API running 🥳')
+    })
 
 io.on('connection', (socket) => {
       console.log('A user connected');
