@@ -5,7 +5,7 @@ const http = require("http");
 const app = express();
 const socketIo = require("socket.io");
 const server = http.createServer(app);
-const io = socketIo(server);
+// const io = socketIo(server);
 const cors = require("cors");
 const socketModel = require("./models/stock");
 require("./utils/db");
@@ -14,13 +14,22 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const corsOptions = {
-      origin: '*', // Replace with your React app's URL
-      methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-    };
+// const corsOptions = {
+//       origin: '*', // Replace with your React app's URL
+//       methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+//     };
 
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(cors());
+
+const io = new Server(server, {
+  cors: {
+    origin: ["https://stockclient.vercel.app"],
+    methods: ["GET", "POST"],
+  },
+});
 
 
 //routes
