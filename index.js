@@ -14,15 +14,13 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// const corsOptions = {
-//       origin: '*', // Replace with your React app's URL
-//       methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-//     };
+const corsOptions = {
+      origin: '*', // Replace with your React app's URL
+      methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+    };
 
 
-// app.use(cors(corsOptions));
-
-app.use(cors());
+app.use(cors(corsOptions));
 
 const io = new Server(server, {
   cors: {
