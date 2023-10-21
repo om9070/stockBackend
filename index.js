@@ -3,7 +3,7 @@ dotenv.config({ path: "utils/.env" });
 const express = require("express");
 const http = require("http");
 const app = express();
-const socketIo = require("socket.io");
+const {Server} = require("socket.io");
 const server = http.createServer(app);
 // const io = socketIo(server);
 const cors = require("cors");
